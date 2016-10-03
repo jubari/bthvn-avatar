@@ -58,11 +58,7 @@
 }
 
 #avatar-cropper-samples {
-  background: url(../img/samples.jpg);
-  background-size: 85% 85%;
-  background-repeat: no-repeat;
-  width: 400px;
-  height: 200px;
+  width: 340px;
   position: absolute;
   top: 140px;
   left: 30px;

@@ -1,6 +1,7 @@
 module.exports = (function() {
   var css           = require("../css/avatar.css");
   var maskImage     = require("../img/mask.png");
+  var samplesImage  = require("../img/samples.png");
 
   var $             = require('jquery');
   var Cropper       = require('cropperjs');
@@ -19,7 +20,7 @@ module.exports = (function() {
 
       <div id="avatar-cropper-upload">
         <div id="avatar-cropper-upload-cta">Erstelle Deinen eigenen <b>BTHVN2020 Avatar</b></div>
-        <div id="avatar-cropper-samples"></div>
+        <img src="`+ samplesImage +`" id="avatar-cropper-samples" />
         <div id="avatar-cropper-upload-button">
           <input id="avatar-cropper-upload-file" type="file" />
           <label for="avatar-cropper-upload-file">Lade Dein Bild hoch</label>

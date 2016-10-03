@@ -6,7 +6,7 @@ module.exports = {
   devtool: debug ? "inline-sourcemap" : null,
   entry: "./src/js/scripts.js",
   output: {
-    path: __dirname,
+    path: __dirname + "/dist",
     filename: "avatar.min.js",
     libraryTarget: 'var',
     library: 'Avatar'
@@ -25,7 +25,7 @@ module.exports = {
       },
       {
         test: /\.png$/,
-        loader: "url-loader?limit=100000",
+        loader: "url-loader?limit=10000000",
         include: __dirname + '/src/img'
       },
       {
