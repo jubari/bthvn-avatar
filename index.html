@@ -3,125 +3,19 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Avatar</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.7.2/cropper.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.7.2/cropper.min.css">
 </head>
 <body>
- 
-<input type="file" id="upload" /><label for="upload">Datei auswählen</label>
-<br/><br />
-<div id="cropper">
-  <img id="image" src="picture.jpg">
-  <img id="mask" src="mask.png">
-</div>
-<a href="#" id="crop">ERSTELLEN</a>
+  <h1>Hello World</h1>
+  <div id="container"></div>
 
-<div id="result"></div>
-<a href="#" id="download">HERUNTERLADEN</a>
-
-<style>
-  body { font-family: sans-serif; }
-
-  #cropper {
-    width: 400px;
-    height: 400px;
-    position: relative;
-  }
-
-  #image {
-    max-width: 100%;
-  }
-
-  #mask {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  #result {
-    display: none;
-  }
-
-  a {
-    display: inline-block;
-    border: 2px solid #888;
-    padding: 10px;
-    margin: 10px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #888;    
-  }
-
-  #result canvas {  border: 5px solid #eee; }
-
-  #download { display: none; }
-</style>
-
-<script>
-  var IMAGE_SIZE = 300;
-  var cropper;
-
-  function downloadCanvas(link, canvasId, filename) {
-    link.href = $("#result").find("canvas")[0].toDataURL();
-    link.download = filename;
-  }
-
-  function onUploaded(event) {
-    // var img = new Image();
-    // img.setAttribute('crossOrigin', 'anonymous');
-    // img.src = url;
-    cropper.replace(event.target.result);
-  }
-
-  var image = document.getElementById('image');
-  cropper = new Cropper($("#image")[0], {
-    aspectRatio: 1,
-    guides: false,
-    center: false,
-    crop: function(e) {
-      var cropBox = $(".cropper-crop-box")[0];
-      $("#mask").attr("style", $(cropBox).attr("style"));
-    }
-  });
-
-  $("body").on("change", "#upload", function(event) {
-    var file      = event.target.files[0]
-    var imageType = /image.*/;
-    if (!file.type.match(imageType))
-        return;
-    var reader = new FileReader();
-    reader.onload = onUploaded;
-    reader.readAsDataURL(file);
-  });
-
-  $("body").on("click", "#crop", function(event) {
-    event.preventDefault();
-
-    var canvas = cropper.getCroppedCanvas({
-      width: IMAGE_SIZE,
-      height: IMAGE_SIZE
-    });
-
-    var ctx = canvas.getContext("2d");
-    var mask = new Image();
-
-    var mask = new Image();
-    mask.onload = function () {
-      ctx.drawImage(mask, 0, 0, IMAGE_SIZE, IMAGE_SIZE);
-      $("#result").html(canvas);
-      $("#result").show();
-      $("#download").show();
-    }
-    mask.src = $("#mask").attr("src");    
-  });
-
-  $("body").on("click", "#download", function(event) {
-    downloadCanvas(this, 'canvas', 'bthvn2020.png');
-  });
-</script>
-
+  <script src="avatar.min.js"></script>
+  <script>
+    window.onload = function() {
+      Avatar.init({
+        container: "#container",
+        verbose: true
+      });
+    };
+  </script>
 </body>
 </html>

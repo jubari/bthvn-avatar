@@ -1,0 +1,28 @@
+{
+  "name": "avatar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jubari/bthvn-avatar.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jubari/bthvn-avatar/issues"
+  },
+  "homepage": "https://github.com/jubari/bthvn-avatar#readme",
+  "dependencies": {
+    "cropperjs": "^0.7.0",
+    "jquery": "^3.1.1",
+    "webpack": "^1.13.2"
+  },
+  "devDependencies": {
+    "css-loader": "^0.25.0",
+    "style-loader": "^0.13.1"
+  }
+}

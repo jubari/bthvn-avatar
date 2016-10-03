@@ -1,0 +1,19 @@
+@import "cropper.css";
+
+#avatar-cropper {
+  width: 400px;
+  height: 400px;
+  position: relative;
+}
+
+#avatar-cropper-picture {
+  max-width: 100%;
+}
+
+#avatar-cropper-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: none;
+}
